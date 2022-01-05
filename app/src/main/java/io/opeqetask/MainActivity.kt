@@ -28,7 +28,6 @@ class MainActivity : ComponentActivity() {
                     composable("user-details") {
                         UserDetailsScreen(navController)
                     }
-                    /*...*/
                 }
             }
         }

@@ -125,7 +125,7 @@ fun UserContent(
 @Preview
 @Composable
 fun ComposablePreview() {
-    UserContent(User("test", "test", "test"), null)
+    UserContent(User("test", "test", "test","" ,"", "test"), null)
 }
 
 

@@ -1,10 +1,8 @@
 package io.opeqetask.ui.view
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -24,19 +22,23 @@ fun UserDetailsScreen(
     val userListViewModel: UserListViewModel = hiltViewModel(userBackStackEntry)
 
     val user=  userListViewModel.selectedUser
-    Column() {
-        Image(
-            painter = rememberImagePainter(
-                data = user?.imageUrl,
-            ),
-            contentDescription = null,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(2.dp)
-        )
+    Card(Modifier.padding(10.dp) ) {
+        Column(Modifier.padding(10.dp) , Arrangement.Center) {
+            Image(
+                painter = rememberImagePainter(
+                    data = user?.imageLargeUrl,
+                ),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(2.dp)
+            )
 
-        Text(user?.name ?:"")
-        Text(user?.address ?: "")
+            Text(user?.name ?: "")
+            Text(user?.address ?: "")
+            Text(user?.email ?: "")
+            Text(user?.phoneNumber ?: "")
+        }
     }
 
 }

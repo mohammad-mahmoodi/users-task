@@ -6,18 +6,20 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityRetainedComponent
 import dagger.hilt.android.scopes.ActivityRetainedScoped
+import dagger.hilt.components.SingletonComponent
 import io.opeqetask.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 @Module
-@InstallIn(ActivityRetainedComponent::class)
+@InstallIn(SingletonComponent::class)
 object RemoteModule {
 
     @Provides
-    @ActivityRetainedScoped
+    @Singleton
     fun provideApiService(gson: Gson,okHttpClient: OkHttpClient): ApiService {
         return Retrofit.Builder()
             .baseUrl("https://randomuser.me/")
@@ -28,13 +30,13 @@ object RemoteModule {
     }
 
     @Provides
-    @ActivityRetainedScoped
+    @Singleton
     fun provideJson(): Gson {
         return Gson()
     }
 
     @Provides
-    @ActivityRetainedScoped
+    @Singleton
     fun provideOkHttp(): OkHttpClient {
 
         val okBuilder = OkHttpClient.Builder()

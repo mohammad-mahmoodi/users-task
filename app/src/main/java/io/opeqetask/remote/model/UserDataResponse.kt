@@ -158,6 +158,9 @@ data class UserDataResponse(
 }
 
 fun UserDataResponse.Result.toUser() : User = User(
+    email =this.email,
+    phoneNumber= this.phone,
     name = "${this.name?.first} ${this.name?.last}" ,
     imageUrl = this.picture?.medium ,
+    imageLargeUrl  = this.picture?.large ,
     address =  "${this.location?.country} ${this.location?.city} ${this.location?.street?.name} ${this.location?.postcode}")
