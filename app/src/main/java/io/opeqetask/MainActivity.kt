@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import io.opeqetask.ui.theme.OpeqeTaskTheme
-import io.opeqetask.ui.view.userList
+import io.opeqetask.ui.view.userListScreen
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
             OpeqeTaskTheme {
                 val navController = rememberNavController()
                 NavHost(navController = navController, startDestination = "user-list") {
-                    composable("user-list") { userList() }
+                    composable("user-list") { userListScreen() }
 //                    composable("friendslist") { FriendsList(/*...*/) }
                     /*...*/
                 }
