@@ -3,6 +3,7 @@ package io.opeqetask.remote.model
 
 import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
+import io.opeqetask.model.User
 
 @Keep
 data class UserDataResponse(
@@ -75,7 +76,7 @@ data class UserDataResponse(
             @SerializedName("country")
             var country: String? = null,
             @SerializedName("postcode")
-            var postcode: Int? = null,
+            var postcode: String? = null,
             @SerializedName("state")
             var state: String? = null,
             @SerializedName("street")
@@ -155,3 +156,6 @@ data class UserDataResponse(
         )
     }
 }
+
+fun UserDataResponse.Result.toUser() : User = User(
+    name = "${this.name?.first} ${this.name?.last}" )

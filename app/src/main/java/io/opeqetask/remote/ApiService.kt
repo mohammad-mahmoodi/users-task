@@ -8,7 +8,7 @@ interface ApiService {
 
     @GET("api")
     suspend fun getUser(
-        @Query("results") results : Int =10,
+        @Query("results") results : Int? ,
     ): UserDataResponse
 
 
